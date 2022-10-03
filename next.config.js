@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["i.ibb.co"],
+    domains: ["image.tmdb.org"],
   },
   env: { EMAIL: process.env.EMAIL, PASSWORD: process.env.PASSWORD },
 };

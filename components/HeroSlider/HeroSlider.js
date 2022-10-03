@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { LeftArrow, RightArrow } from "../common/SVGIcons";
 import SwiperCore, {
   Autoplay,
   Navigation,
@@ -11,14 +12,15 @@ import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import HeroSliderItem from "./HeroSliderItem";
-import { LeftArrow, RightArrow } from "../common/SVGIcons";
 
 SwiperCore.use([Autoplay, EffectFade, Navigation]);
 
 const HeroSlider = ({ content }) => {
+  console.log("movie",content)
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [count, setCount] = useState(0);
+  
   const bgChange = () => {
     if (count === 0 && count < 4) {
       setCount(count + 1);
@@ -29,9 +31,9 @@ const HeroSlider = ({ content }) => {
 
   return (
     <>
-      <div className="relative h-full arrow-item">
-        <div className="flex justify-between items-center h-full arrow tr hero-slider">
-          <div className="absolute z-50 top-0 left-6 h-full flex items-center justify-center tr">
+      <div className="relative  arrow-item">
+        <div className="flex justify-between items-center  arrow  hero-slider">
+          <div className="absolute z-50 top-[310px] left-6  flex items-center justify-center">
             <div
               className={`group relative w-16 cursor-pointer  h-16`}
               ref={prevRef}
@@ -50,7 +52,7 @@ const HeroSlider = ({ content }) => {
             </div>
           </div>
 
-          <div className="absolute z-10 top-0 right-6 h-full flex items-center justify-center tr">
+          <div className="absolute z-10 top-0 right-6 h-full flex items-center justify-center">
             <div
               className={`group relative w-16 h-16 cursor-pointer   `}
               ref={nextRef}
@@ -65,6 +67,7 @@ const HeroSlider = ({ content }) => {
               </span>
             </div>
           </div>
+
         </div>
         <Swiper
           loop={true}
@@ -83,12 +86,11 @@ const HeroSlider = ({ content }) => {
             swiper.navigation.init();
             swiper.navigation.update();
           }}
-          isActive
         >
           {content.map((item, index) => (
             <SwiperSlide key={index}>
-              {({ isActive }) => {
-                return <HeroSliderItem content={item} isActive={isActive} />;
+              {() => {
+                return <HeroSliderItem content={item} />;
               }}
             </SwiperSlide>
           ))}

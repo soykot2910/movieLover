@@ -83,18 +83,8 @@ const Header = () => {
         <div className=" z-50  top-0 py-2 fixed w-full bg-themeBG md:bg-transparent js-color-set">
           <div className="container mx-auto">
             <nav className="flex justify-between items-center">
-              <div className="w-36 h-12 relative">
-                <Link href="/">
-                  <a>
-                    <Image
-                      layout="fixed"
-                      src="/logo.png"
-                      alt="Logo"
-                      width={120}
-                      height={50}
-                    />
-                  </a>
-                </Link>
+              <div className="h-12">
+                <h3 className="text-white font-bold text-2xl">Movie Lover</h3>
               </div>
 
               <div className="flex items-center justify-end h-[7vh] px-4 md:px-0 flex-1">
