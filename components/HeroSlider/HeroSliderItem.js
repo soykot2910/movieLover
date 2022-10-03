@@ -2,10 +2,17 @@ import Image from "next/image";
 import React, { useCallback, useState } from "react";
 import Modal from "react-modal";
 import ReactPlayer from "react-player";
-import { CrossIcon2 } from "../common/SVGIcons";
+import {
+  CrossIcon2,
+  PlayBtn,
+  PlayBtnHero,
+  Plus,
+  Star,
+} from "../common/SVGIcons";
 // modal style
 const customStyles = {
   content: {
+    height: "100vh",
     width: "100vw",
     display: "flex",
     alignItems: "center",
@@ -27,14 +34,16 @@ const HeroSliderItem = ({ content }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  
+
   return (
     <section
       style={{
         background: `url(https://image.tmdb.org/t/p/original/${content.poster_path})`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        height: "auto",
+        backgroundPosition: "center 20%",
+        backgroundSize: "100%",
         zIndex: "9999",
       }}
       className="w-screen bg-slider"
@@ -45,6 +54,31 @@ const HeroSliderItem = ({ content }) => {
             <h2 className="text-white text-xl lg:text-6xl font-semibold">
               {content.original_title}
             </h2>
+
+            <p className="text-white flex mt-3 justify-between max-w-[350px]">
+              <span className="flex">
+                <Star />
+                <span className="ml-2">
+                  {" "}
+                  {content.vote_average} | {content.vote_count}
+                </span>
+              </span>
+              <span className="text-gray-400">2h 10m Action,Drama 2021</span>
+              {/* {content.release_date} */}
+            </p>
+
+            <p className="text-gray-400 mt-4">{content.overview}</p>
+
+            <div className="mt-10 flex justify-between max-w-[430px]">
+              <button className="bg-[#FF0450] flex py-4 px-6 text-white rounded-full">
+                <PlayBtn />
+                <span className="ml-2 text-sm">WATCH TRAILER</span>
+              </button>
+              <button className="bg-white flex py-4 px-6 rounded-full">
+                <Plus />
+                <span className="ml-2 text-sm">ADD WATCHLIST</span>
+              </button>
+            </div>
           </div>
           <div className="w-full lg:w-6/12 px-5 lg:px-[35px] z-[9999]">
             <div className="relative">
@@ -58,40 +92,7 @@ const HeroSliderItem = ({ content }) => {
               />
               <span>
                 <a className="playBut " onClick={openModal}>
-                  <svg
-                    version="1.1"
-                    x="0px"
-                    y="0px"
-                    width="213.7px"
-                    height="213.7px"
-                    viewBox="0 0 213.7 213.7"
-                    enableBackground="new 0 0 213.7 213.7"
-                  >
-                    <polygon
-                      className="triangle"
-                      id="XMLID_18_"
-                      fill="none"
-                      strokeWidth="7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeMiterlimit="10"
-                      points="
-            73.5,62.5 148.5,105.8 73.5,149.1 "
-                    ></polygon>
-
-                    <circle
-                      className="circle"
-                      id="XMLID_17_"
-                      fill="none"
-                      strokeWidth="7"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeMiterlimit="10"
-                      cx="106.8"
-                      cy="106.8"
-                      r="103.3"
-                    ></circle>
-                  </svg>
+                  <PlayBtnHero />
                 </a>
               </span>
             </div>

@@ -232,39 +232,92 @@ export const WhiteHeart = (props) => {
   );
 };
 
-export const PlayBtn = () => {
-  <svg
-    version="1.1"
-    x="0px"
-    y="0px"
-    width="213.7px"
-    height="213.7px"
-    viewBox="0 0 213.7 213.7"
-    enableBackground="new 0 0 213.7 213.7"
-  >
-    <polygon
-      className="triangle"
-      id="XMLID_18_"
-      fill="none"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeMiterlimit="10"
-      points="
+export const PlayBtnHero = () => {
+  return (
+    <svg
+      version="1.1"
+      x="0px"
+      y="0px"
+      width="213.7px"
+      height="213.7px"
+      viewBox="0 0 213.7 213.7"
+      enableBackground="new 0 0 213.7 213.7"
+    >
+      <polygon
+        className="triangle"
+        id="XMLID_18_"
+        fill="none"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        points="
 73.5,62.5 148.5,105.8 73.5,149.1 "
-    ></polygon>
+      ></polygon>
 
-    <circle
-      className="circle"
-      id="XMLID_17_"
-      fill="none"
-      strokeWidth="7"
+      <circle
+        className="circle"
+        id="XMLID_17_"
+        fill="none"
+        strokeWidth="7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        cx="106.8"
+        cy="106.8"
+        r="103.3"
+      ></circle>
+    </svg>
+  );
+};
+
+export const PlayBtn = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="currentColor"
+    className="w-5 h-5"
+  >
+    <path
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeMiterlimit="10"
-      cx="106.8"
-      cy="106.8"
-      r="103.3"
-    ></circle>
-  </svg>;
-};
+      d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
+    />
+  </svg>
+);
+
+export const Plus = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#FF0450"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="#FF0450"
+    className="w-5 h-5"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 4.5v15m7.5-7.5h-15"
+    />
+  </svg>
+);
+
+export const Star = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="#E8C156"
+    viewBox="0 0 24 24"
+    strokeWidth={1.5}
+    stroke="#E8C156"
+    className="w-5 h-5"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+    />
+  </svg>
+);
