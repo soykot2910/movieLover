@@ -1,0 +1,13 @@
+{
+  "logo": "logo.png",
+  "nav_link": [
+    {
+      "text": "Home",
+      "link": "/"
+    },
+    {
+      "text": "Watchlist",
+      "link": "/watchlist"
+    }
+  ]
+}
