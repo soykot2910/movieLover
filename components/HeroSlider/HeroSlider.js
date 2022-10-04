@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LeftArrow, RightArrow } from "../common/SVGIcons";
+
 import SwiperCore, {
   Autoplay,
   Navigation,
@@ -32,7 +33,7 @@ const HeroSlider = ({ content }) => {
     <>
       <div className="relative arrow-item">
         <div className="flex justify-between items-center  arrow  hero-slider">
-          <div className="absolute z-50 top-[450px] left-6  flex items-center justify-center">
+          <div className="absolute z-10 top-[450px] left-6  flex items-center justify-center">
             <div
               className={`group relative w-16 cursor-pointer  h-16`}
               ref={prevRef}

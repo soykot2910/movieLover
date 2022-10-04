@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
 import MovieList from "../components/MovieList";
-const Index = ({ movieInfo }) => {
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovies } from "../redux/slices/movieSlice";
+import genres from "../data/genres.json"
+
+const Index = ({ upcomingMovies }) => {
+  const dispatch = useDispatch();
+  const { allMovies } = useSelector((state) => state.movies);
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, []);
+
+
   return (
     <>
-      <HeroSlider content={movieInfo} />
-      <MovieList title="Popular Movies" allMovie={movieInfo} />
+      <HeroSlider content={upcomingMovies} />
+      <MovieList title="Popular Movies" allMovie={allMovies} />
     </>
   );
 };
@@ -15,7 +27,7 @@ export async function getStaticProps() {
 
   try {
     const res = await fetch(
-      `${process.env.BASE_URL}/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+      `${process.env.BASE_URL}/movie/upcoming?api_key=${process.env.API_KEY}&language=en-US&page=1`
     );
     movieInfo = await res.json();
   } catch (error) {
@@ -23,7 +35,7 @@ export async function getStaticProps() {
   }
   return {
     props: {
-      movieInfo: movieInfo.results,
+      upcomingMovies: movieInfo.results,
     },
   };
 }

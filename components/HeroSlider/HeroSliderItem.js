@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-modal";
 import ReactPlayer from "react-player";
+import { fetchCast, fetchMovieInfo } from "../../utils/apiHelper";
 import {
   CrossIcon2,
   PlayBtn,
@@ -9,6 +10,7 @@ import {
   Plus,
   Star,
 } from "../common/SVGIcons";
+
 // modal style
 const customStyles = {
   content: {
@@ -25,6 +27,8 @@ const customStyles = {
   },
 };
 const HeroSliderItem = ({ content }) => {
+  const [movieInfo, setMovieInfo] = useState({});
+  const [credits, setCredits] = useState();
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -35,7 +39,19 @@ const HeroSliderItem = ({ content }) => {
     setIsOpen(false);
   }
 
-  
+  useEffect(() => {
+    async function fetchMyAPI() {
+      let res = await fetchMovieInfo(content.id);
+      setMovieInfo(res);
+
+      let credit = await fetchCast(content.id);
+      setCredits(credit);
+    }
+
+    fetchMyAPI();
+  }, []);
+
+  console.log("moive",movieInfo)
 
   return (
     <section
@@ -57,17 +73,32 @@ const HeroSliderItem = ({ content }) => {
 
             <p className="text-white flex mt-3 justify-between max-w-[350px]">
               <span className="flex">
-                <Star />
                 <span className="ml-2">
-                  {" "}
-                  {content.vote_average} | {content.vote_count}
+                  <span className="bg-yellow-400 mr-3 text-black font-bold px-2 py-1 rounded-md ">
+                    IMDb
+                  </span>
+                  {content.vote_average}
                 </span>
               </span>
-              <span className="text-gray-400">2h 10m Action,Drama 2021</span>
-              {/* {content.release_date} */}
             </p>
 
-            <p className="text-gray-400 mt-4">{content.overview.substring(0,180)} ...</p>
+            <p className="text-gray-400 mt-4">
+              {content.overview.substring(0, 180)} ...
+            </p>
+
+            <p className="my-2">
+              <span className="text-[#FF0450]">Cast : </span>
+              {credits?.cast.slice(0, 4)?.map((item) => (
+                <span className="text-white mx-[2px]">{item.name},</span>
+              ))}
+            </p>
+
+            <p className="my-2">
+              <span className="text-[#FF0450]">Genre : </span>
+              {movieInfo?.genres?.map((item) => (
+                <span className="text-white mx-[2px]">{item.name},</span>
+              ))}
+            </p>
 
             <div className="mt-10 flex justify-between max-w-[430px]">
               <button className="bg-[#FF0450] flex py-4 px-6 text-white rounded-full">

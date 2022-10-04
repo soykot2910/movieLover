@@ -10,7 +10,7 @@ const MovieCard = ({ movieInfo }) => {
           src={`${process.env.IMAGE_URL}/${movieInfo.poster_path}`}
           width={400}
           height={220}
-          layout="fixed"
+          layout="responsive"
         />
         <span>
           <a className="absolute top-[40%] left-[50%] bg-[#FF0450] w-10 h-10 flex items-center justify-center rounded-full">
