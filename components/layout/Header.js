@@ -63,7 +63,6 @@ const Header = () => {
         HeaderBG.classList.remove("active");
       }
 
-      // console.log(watchEntry[0].isIntersecting);
     };
     const navObserverOptions = {
       root: null,

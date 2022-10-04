@@ -49,9 +49,9 @@ const HeroSliderItem = ({ content }) => {
       className="w-screen bg-slider"
     >
       <div className="container mx-auto active-slider">
-        <div className="h-auto lg:h-[70vh] py-5  container 3xl:mx-auto flex flex-col-reverse lg:flex-row items-center lg:px-[70px]">
+        <div className="h-auto lg:h-screen py-5  container 3xl:mx-auto flex flex-col-reverse lg:flex-row items-center ">
           <div className="w-full lg:w-6/12  pl-3 z-[999]">
-            <h2 className="text-white text-xl lg:text-6xl font-semibold">
+            <h2 className="text-white uppercase text-xl lg:text-6xl font-semibold">
               {content.original_title}
             </h2>
 
@@ -67,7 +67,7 @@ const HeroSliderItem = ({ content }) => {
               {/* {content.release_date} */}
             </p>
 
-            <p className="text-gray-400 mt-4">{content.overview}</p>
+            <p className="text-gray-400 mt-4">{content.overview.substring(0,180)} ...</p>
 
             <div className="mt-10 flex justify-between max-w-[430px]">
               <button className="bg-[#FF0450] flex py-4 px-6 text-white rounded-full">
@@ -85,8 +85,8 @@ const HeroSliderItem = ({ content }) => {
               <Image
                 src={`https://image.tmdb.org/t/p/original/${content.poster_path}`}
                 alt="imgage"
-                width={582}
-                height={330}
+                width={823}
+                height={465}
                 layout="responsive"
                 className="rounded px-10  mt-5 block"
               />

@@ -16,7 +16,6 @@ import HeroSliderItem from "./HeroSliderItem";
 SwiperCore.use([Autoplay, EffectFade, Navigation]);
 
 const HeroSlider = ({ content }) => {
-  console.log("movie",content)
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [count, setCount] = useState(0);
@@ -31,9 +30,9 @@ const HeroSlider = ({ content }) => {
 
   return (
     <>
-      <div className="relative  arrow-item">
+      <div className="relative arrow-item">
         <div className="flex justify-between items-center  arrow  hero-slider">
-          <div className="absolute z-50 top-[310px] left-6  flex items-center justify-center">
+          <div className="absolute z-50 top-[450px] left-6  flex items-center justify-center">
             <div
               className={`group relative w-16 cursor-pointer  h-16`}
               ref={prevRef}
@@ -54,7 +53,7 @@ const HeroSlider = ({ content }) => {
 
           <div className="absolute z-10 top-0 right-6 h-full flex items-center justify-center">
             <div
-              className={`group relative w-16 h-16 cursor-pointer   `}
+              className={`group relative w-16 h-16 cursor-pointer `}
               ref={nextRef}
             >
               <button className="absolute left-0 top-0 flex items-center review-slider-navigation h-16 w-16 rounded-full bg-[#0a0a0a8c]   group-hover:bg-transparent  text-white p-6 group z-50 text-2xl ">

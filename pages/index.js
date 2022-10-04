@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
+import MovieList from "../components/MovieList";
 const Index = ({ movieInfo }) => {
-
   return (
     <>
       <HeroSlider content={movieInfo} />
+      <MovieList title="Popular Movies" allMovie={movieInfo} />
     </>
   );
 };
@@ -14,7 +15,7 @@ export async function getStaticProps() {
 
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=8f4b770dd036a39a993bd278fa769318&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=`
+      `${process.env.BASE_URL}/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
     );
     movieInfo = await res.json();
   } catch (error) {
@@ -22,7 +23,7 @@ export async function getStaticProps() {
   }
   return {
     props: {
-      movieInfo:movieInfo.results,
+      movieInfo: movieInfo.results,
     },
   };
 }

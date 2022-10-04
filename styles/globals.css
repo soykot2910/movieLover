@@ -54,7 +54,6 @@ body {
   content: "";
 }
 
-
 .video-icon {
   display: inline-block;
 }
@@ -77,8 +76,21 @@ body {
     opacity: 0;
   }
 }
+.arrow-item .swiper-button-prev {
+  left: -10% !important;
+}
+.arrow-item .swiper-button-next {
+  right: -10% !important;
+}
 
-.swiper-pagination-bullet {
+.movieContainer .swiper-button-prev {
+  left: 0% !important;
+}
+.movieContainer .swiper-button-next {
+  right: 0% !important;
+}
+
+.arrow-item .swiper-pagination-bullet {
   background-color: white !important;
   width: 40px !important;
   height: 5px !important;
@@ -86,7 +98,7 @@ body {
   opacity: 1 !important;
   margin: 0 5px !important;
 }
-.swiper-pagination-bullet-active {
+.arrow-item .swiper-pagination-bullet-active {
   background-color: #10b981 !important;
 }
 .search-container::-webkit-scrollbar {

@@ -4,7 +4,11 @@ const nextConfig = {
   images: {
     domains: ["image.tmdb.org"],
   },
-  env: { EMAIL: process.env.EMAIL, PASSWORD: process.env.PASSWORD },
+  env: {
+    ENVIROMENT: process.env.BASE_URL,
+    API_KEY: process.env.API_KEY,
+    IMAGE_URL:process.env.IMAGE_URL
+  },
 };
 
 module.exports = nextConfig;
