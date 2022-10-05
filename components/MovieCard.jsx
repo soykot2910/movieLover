@@ -11,9 +11,10 @@ const MovieCard = ({ movieInfo }) => {
           width={400}
           height={220}
           layout="responsive"
+          className="rounded-t-md"
         />
         <span>
-          <a className="absolute top-[40%] left-[50%] bg-[#FF0450] w-10 h-10 flex items-center justify-center rounded-full">
+          <a className="absolute top-[40%] left-[45%] bg-[#FF0450] w-10 h-10 flex items-center justify-center rounded-full">
             <PlayBtn fill="white" stroke="white" />
           </a>
         </span>

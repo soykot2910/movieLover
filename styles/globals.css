@@ -19,7 +19,7 @@
   left: 0;
   content: "";
   height: 2px;
-  background-color: #10b981;
+  background-color: #ff0450;
   bottom: -1px;
   transition: 300ms;
   width: 0%;
@@ -85,9 +85,11 @@ body {
 
 .movieContainer .swiper-button-prev {
   left: 0% !important;
+  top: 45% !important;
 }
 .movieContainer .swiper-button-next {
   right: 0% !important;
+  top: 45% !important;
 }
 
 .arrow-item .swiper-pagination-bullet {
@@ -222,4 +224,18 @@ body {
     rgba(10, 14, 23, 0.6) 100%
   );
   z-index: 9;
+}
+
+.mystery {
+  background-color: #EC5A1A;
+}
+.thriller {
+  background-color: #dd003f;
+}
+.drama {
+  background-color: #363A12;
+}
+.horror{
+  background-color: #011509;
+  color: white;
 }
