@@ -10,14 +10,26 @@ export const fetchMovieInfo = async (id) => {
   }
 };
 
-export const fetchCast=async(id)=>{
-    try {
-        const res = await fetch(
-          `${process.env.BASE_URL}/movie/${id}/credits?api_key=${process.env.API_KEY}`
-        );
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-}
+export const fetchCast = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.BASE_URL}/movie/${id}/credits?api_key=${process.env.API_KEY}`
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchVideo = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.BASE_URL}/movie/${id}/videos?api_key=${process.env.API_KEY}`
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
