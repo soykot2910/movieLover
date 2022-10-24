@@ -62,7 +62,6 @@ const Header = () => {
       } else {
         HeaderBG.classList.remove("active");
       }
-
     };
     const navObserverOptions = {
       root: null,
@@ -83,7 +82,9 @@ const Header = () => {
           <div className="container mx-auto">
             <nav className="flex justify-between items-center">
               <div className="">
-                <h3 className="text-white font-bold text-2xl">Movie Lover</h3>
+                <a href="/" className="text-white font-bold text-2xl">
+                  Movie Lover
+                </a>
               </div>
 
               <div className="flex items-center justify-end h-[7vh] px-4 md:px-0 flex-1">
