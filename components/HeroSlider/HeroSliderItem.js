@@ -51,8 +51,6 @@ const HeroSliderItem = ({ content }) => {
     fetchMyAPI();
   }, []);
 
-  console.log("moive",movieInfo)
-
   return (
     <section
       style={{
@@ -88,15 +86,21 @@ const HeroSliderItem = ({ content }) => {
 
             <p className="my-2">
               <span className="text-[#FF0450]">Cast : </span>
-              {credits?.cast.slice(0, 4)?.map((item) => (
-                <span className="text-white mx-[2px]">{item.name},</span>
+              {credits?.cast.slice(0, 5)?.map((item, idx) => (
+                <span className="text-white mx-[2px]">
+                  {item.name}
+                  {4 > idx ? "," : " ..."}
+                </span>
               ))}
             </p>
 
             <p className="my-2">
               <span className="text-[#FF0450]">Genre : </span>
-              {movieInfo?.genres?.map((item) => (
-                <span className="text-white mx-[2px]">{item.name},</span>
+              {movieInfo?.genres?.map((item, idx) => (
+                <span className="text-white mx-[2px]">
+                  {item.name}
+                  {movieInfo.genres.length - 1 > idx ? "," : ""}
+                </span>
               ))}
             </p>
 

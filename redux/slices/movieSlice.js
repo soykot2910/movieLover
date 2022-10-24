@@ -1,23 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoading: false,
-  allMovies: [],
+  allMovie: [],
 };
 
-export const fetchMovies = createAsyncThunk("fetchMovies", async () => {
-  try {
-    const res = await fetch(
-      `${process.env.BASE_URL}/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    );
-    const data = await res.json();
-    return data.results;
-  } catch (error) {
-    console.log(error);
+export const fetchMovies = createAsyncThunk(
+  "fetchMovies",
+  async (movieType) => {
+    try {
+      const res = await fetch(
+        `${process.env.BASE_URL}/movie/${movieType}?api_key=${process.env.API_KEY}&language=en-US&page=1`
+      );
+      const data = await res.json();
+      return data.results;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 const movieSlice = createSlice({
-  name: "user",
+  name: "movie",
   initialState,
   reducers: {},
   extraReducers: {
@@ -26,7 +29,7 @@ const movieSlice = createSlice({
     },
     [fetchMovies.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.allMovies = payload;
+      state.allMovie = payload;
     },
     [fetchMovies.rejected]: (state) => {
       state.isLoading = false;

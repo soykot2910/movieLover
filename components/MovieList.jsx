@@ -16,26 +16,24 @@ const MovieList = ({ allMovie, title }) => {
   return (
     <div className="container py-10 movieContainer">
       <h3 className="xl:text-3xl text-white font-bold py-10">{title}</h3>
-      <div>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          slidesPerGroup={4}
-          loop={true}
-          loopFillGroupWithBlank={true}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Navigation]}
-        >
-          {allMovie.map((movie, idx) => (
-            <SwiperSlide key={idx}>
-              <MovieCard movieInfo={movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      <Swiper
+        slidesPerView={5}
+        spaceBetween={30}
+        slidesPerGroup={4}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Navigation]}
+      >
+        {allMovie.map((movie, idx) => (
+          <SwiperSlide key={idx}>
+            <MovieCard movieInfo={movie} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };

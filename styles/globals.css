@@ -89,6 +89,11 @@ body {
 .movieContainer .swiper-button-next {
   right: 0% !important;
 }
+.movieContainer .swiper-button-prev:after,
+.movieContainer .swiper-button-next:after {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
 
 .arrow-item .swiper-pagination-bullet {
   background-color: white !important;

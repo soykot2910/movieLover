@@ -3,25 +3,22 @@ import Image from "next/image";
 import { PlayBtn } from "./common/SVGIcons";
 
 const MovieCard = ({ movieInfo }) => {
+  console.log("Mov", movieInfo);
   return (
-    <div className="">
-      <div className="relative">
-        <Image
+    <a href={`/movie/${movieInfo.id}`} class="max-w-sm bg-white rounded-lg">
+      <div className="h-[300px]">
+        <img
+          class="rounded-t-lg h-full w-full"
           src={`${process.env.IMAGE_URL}/${movieInfo.poster_path}`}
-          width={400}
-          height={220}
-          layout="responsive"
+          alt=""
         />
-        <span>
-          <a className="absolute top-[40%] left-[50%] bg-[#FF0450] w-10 h-10 flex items-center justify-center rounded-full">
-            <PlayBtn fill="white" stroke="white" />
-          </a>
-        </span>
       </div>
-      <h3 className="text-white py-2 text-lg transition-all hover:text-[#FF0450]">
-        {movieInfo.original_title}
-      </h3>
-    </div>
+      <div class="py-5">
+        <h5 class="mb-2 text-white text-xl font-bold tracking-tight ">
+          Noteworthy 2021
+        </h5>
+      </div>
+    </a>
   );
 };
 
