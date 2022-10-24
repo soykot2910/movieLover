@@ -54,7 +54,7 @@ const HeroSliderItem = ({ content }) => {
   return (
     <section
       style={{
-        background: `url(https://image.tmdb.org/t/p/original/${content.poster_path})`,
+        background: `url(${process.env.IMAGE_URL}/${content.poster_path})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center 20%",
         backgroundSize: "100%",
@@ -63,7 +63,7 @@ const HeroSliderItem = ({ content }) => {
       className="w-screen bg-slider"
     >
       <div className="container mx-auto active-slider">
-        <div className="h-auto lg:h-screen py-5  container 3xl:mx-auto flex flex-col-reverse lg:flex-row items-center ">
+        <div className="h-auto lg:h-screen py-5 xl:px-16 lg:px-12 px-0 container 3xl:mx-auto flex flex-col-reverse lg:flex-row items-center ">
           <div className="w-full lg:w-6/12  pl-3 z-[999]">
             <h2 className="text-white uppercase text-xl lg:text-6xl font-semibold">
               {content.original_title}

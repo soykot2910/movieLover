@@ -46,7 +46,7 @@ const Header = () => {
 
   useEffect(() => {
     document.querySelectorAll(".nav__item").forEach((el) => {
-      if (el.getAttribute("href") === path) el.style.color = "#10B981";
+      if (el.getAttribute("href") === path) el.style.color = "#FF0450";
     });
   }, [path]);
   const headerRef = useRef(null);
@@ -79,10 +79,10 @@ const Header = () => {
   return (
     <>
       <header ref={headerRef}>
-        <div className=" z-50  top-0 py-2 fixed w-full bg-themeBG md:bg-transparent js-color-set">
+        <div className=" z-50 top-0 py-2 fixed w-full bg-themeBG md:bg-transparent js-color-set">
           <div className="container mx-auto">
             <nav className="flex justify-between items-center">
-              <div className="h-12">
+              <div className="">
                 <h3 className="text-white font-bold text-2xl">Movie Lover</h3>
               </div>
 
@@ -102,7 +102,7 @@ const Header = () => {
                       onClick={switchSideDrawerHandler.bind(this, navOpen)}
                     >
                       <Link href={item.link}>
-                        <a className="nav__item text-white lg:hover:text-themeText">
+                        <a className="nav__item text-white lg:hover:text-[#FF0450]">
                           {item.text}
                         </a>
                       </Link>

@@ -33,7 +33,7 @@ const HeroSlider = ({ content }) => {
     <>
       <div className="relative arrow-item">
         <div className="flex justify-between items-center  arrow  hero-slider">
-          <div className="absolute z-10 top-[450px] left-6  flex items-center justify-center">
+          <div className="absolute z-10 2xl:top-[400px] xl:top-[300px] lg:top-[260px]  left-6  flex items-center justify-center">
             <div
               className={`group relative w-16 cursor-pointer  h-16`}
               ref={prevRef}
