@@ -47,6 +47,7 @@ const Header = () => {
   useEffect(() => {
     document.querySelectorAll(".nav__item").forEach((el) => {
       if (el.getAttribute("href") === path) el.style.color = "#FF0450";
+      else el.style.color = "#fff";
     });
   }, [path]);
   const headerRef = useRef(null);

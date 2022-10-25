@@ -28,7 +28,7 @@ const MovieList = ({ allMovie, title }) => {
         navigation={true}
         modules={[Navigation]}
       >
-        {allMovie.map((movie, idx) => (
+        {allMovie?.map((movie, idx) => (
           <SwiperSlide key={idx}>
             <MovieCard movieInfo={movie} />
           </SwiperSlide>

@@ -18,7 +18,6 @@ const HeroSliderItem = ({ content }) => {
 
   async function openModal(id) {
     let videos = await fetchVideo(id);
-    console.log("video", videos);
     await setVideoLink(
       `https://www.youtube.com/watch?v=${videos?.results[0]?.key}`
     );

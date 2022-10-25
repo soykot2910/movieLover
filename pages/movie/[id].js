@@ -1,8 +1,16 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { PlayBtn, Plus } from "../../components/common/SVGIcons";
+import MovieList from "../../components/MovieList";
 import VideoModal from "../../components/VideoModal";
-import { fetchCast, fetchMovieInfo, fetchVideo } from "../../utils/apiHelper";
+import { fetchMovies } from "../../redux/slices/movieSlice";
+import {
+  fetchCast,
+  fetchMovieInfo,
+  fetchRecommendations,
+  fetchVideo,
+} from "../../utils/apiHelper";
 
 const SingleMovie = () => {
   const [movieDetails, setMovieDetails] = useState();
@@ -12,10 +20,10 @@ const SingleMovie = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [videoLink, setVideoLink] = useState();
+  const [recommendationMovies, setRecommendationMovies] = useState();
 
   async function openModal(id) {
     let videos = await fetchVideo(id);
-    console.log("video", videos);
     await setVideoLink(
       `https://www.youtube.com/watch?v=${videos?.results[0]?.key}`
     );
@@ -33,14 +41,17 @@ const SingleMovie = () => {
 
       let credit = await fetchCast(id);
       setCredits(credit);
+
+      let recommendationMovies = await fetchRecommendations(id);
+      setRecommendationMovies(recommendationMovies);
     }
 
-    fetchMyAPI();
+    fetchMyAPI(id);
   }, [router]);
 
   return (
     <>
-      <div className="container mt-24">
+      <div className="container my-24 h-screen">
         <div className="flex">
           <div className="w-4/12 flex items-center justify-center">
             <img
@@ -134,6 +145,8 @@ const SingleMovie = () => {
             </div>
           </div>
         </div>
+
+        <MovieList title="Recommendations" allMovie={recommendationMovies} />
       </div>
 
       <VideoModal

@@ -33,3 +33,15 @@ export const fetchVideo = async (id) => {
     console.log(error);
   }
 };
+
+export const fetchRecommendations = async (id) => {
+  try {
+    const res = await fetch(
+      `${process.env.BASE_URL}/movie/${id}/recommendations?api_key=${process.env.API_KEY}&language=en-US&page=1`
+    );
+    const data = await res.json();
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};

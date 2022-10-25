@@ -3,7 +3,6 @@ import Image from "next/image";
 import { PlayBtn } from "./common/SVGIcons";
 
 const MovieCard = ({ movieInfo }) => {
-  console.log("Mov", movieInfo);
   return (
     <a href={`/movie/${movieInfo.id}`} class="max-w-sm bg-white rounded-lg">
       <div className="h-[300px]">
